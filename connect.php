@@ -9,7 +9,7 @@ class connection
     {
 
         $host = 'localhost';
-        $db_name = "db_name";
+        $db_name = "blauweloper";
         $username = "root";
         $password = "";
 
