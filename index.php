@@ -1,3 +1,8 @@
 <?php 
-    echo "Fakka drerries";
+    function hello()
+    {
+        return "hello world";
+    }
+
+    echo hello();
 ?>
