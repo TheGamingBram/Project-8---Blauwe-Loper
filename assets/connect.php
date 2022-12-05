@@ -44,11 +44,11 @@ class connection
     }
 }
 
-$action = new connection;
+// $action = new connection;
 
-$result = $action->select("select * from table_name");
-print_r($result);
+// $result = $action->select("select * from table_name");
+// print_r($result);
 
-$result = $action->insert("insert into table_name set column_1 = 'first_value', column_2='second_value'");
-$result = $action->update("update table_name set column_1 = 'first_value', column_2='second_value' where id=1");
-$result = $action->delete("delete from table_name where id=1");
+// $result = $action->insert("insert into table_name set column_1 = 'first_value', column_2='second_value'");
+// $result = $action->update("update table_name set column_1 = 'first_value', column_2='second_value' where id=1");
+// $result = $action->delete("delete from table_name where id=1");
