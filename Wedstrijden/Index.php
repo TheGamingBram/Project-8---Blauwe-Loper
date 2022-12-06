@@ -4,6 +4,7 @@
 
 
     $loginrole = 3;
+    $AdminRights = 3;
 
     $DB_Connection = new connection;
 
@@ -34,11 +35,19 @@
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                 <i class="fa-solid fa-chess-pawn"></i>
                 <svg class="bi me-2" width="40" height="32"></svg>
-                <span class="fs-4">Simple header</span>
+                <span class="fs-4">wedstrijden</span>
             </a>
 
             <ul class="nav nav-pills">
                 <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+                <?php 
+                    if($loginrole == $AdminRights){
+                        echo '
+                            <li class="nav-item"><a href="#" class="nav-link" aria-current="page">Wedstrijd Aanmaken</a></li>
+                        ';
+                    }
+                ?>
+                
             </ul>
             </header>
         </div>
@@ -75,6 +84,9 @@
                                 echo $row["SchijdsVoornaam"] . " " . $row["SchijdsAchternaam"];
                             echo "</td>";
                             echo "<td>";
+                                echo "<a class='btn btn-warning' href='#' role='button'><i class='fa-solid fa-pen'></i></a>";
+                                echo "&nbsp;";
+                                echo "<a class='btn btn-danger' href='#' role='button'><i class='fa-solid fa-trash'></i></a>";
                             echo "</td>";
                         echo "</tr>";
                      }
@@ -94,7 +106,7 @@
                     visible: false,
                     searchable: false
                 }<?php 
-                    if($loginrole != 3){
+                    if($loginrole != $AdminRights){
                         echo "
                             ,{
                                 target: -1,
