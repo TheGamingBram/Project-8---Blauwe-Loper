@@ -11,7 +11,12 @@ if(isset($_POST["submit"]))
     $telefoonnummer = $_POST["telefoonnummer"]
 
     // Instatntiate Signup Controller class
+    include "../classes/signup.classes.php";
+    include "../classes/signup-contr.classes.php";
+    $signup = new SignupContrl($voornaam, $achternaam, $email, $ww, $wwherhaal, $telefoonnummer);
 
+
+    
     // Running error handles and user signup
 
     // Going back to front page
