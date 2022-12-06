@@ -3,6 +3,8 @@
     include("../assets/header.php");
 
 
+    $loginrole = 3;
+
     $DB_Connection = new connection;
 
     $sql_request = "
@@ -85,7 +87,24 @@
 <script>
     $(document).ready(function () {
         $('#table_wedstrijd').DataTable({
-            "paging": false
+            "paging": false,
+            columnDefs: [
+                {
+                    target: 0,
+                    visible: false,
+                    searchable: false
+                }<?php 
+                    if($loginrole != 3){
+                        echo "
+                            ,{
+                                target: -1,
+                                visible: false,
+                                searchable: false
+                            }
+                        ";
+                    }
+                ?> 
+            ]
         });
     });
 </script>
