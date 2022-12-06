@@ -1,9 +1,4 @@
 <?php 
     include("assets/connect.php");
-    function hello()
-    {
-        return "hello world";
-    }
-
-    echo hello();
+    include("assets/header.php");
 ?>
