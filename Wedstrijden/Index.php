@@ -84,6 +84,8 @@
 </html>
 <script>
     $(document).ready(function () {
-        $('#table_wedstrijd').DataTable();
+        $('#table_wedstrijd').DataTable({
+            "paging": false
+        });
     });
 </script>
