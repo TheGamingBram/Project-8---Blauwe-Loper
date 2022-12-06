@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>De Blauwe Loper</title>
 
+    <link rel="icon" type="image/png" href="../Assets/IMG/Logo.png">
     <link rel="icon" type="image/png" href="./Assets/IMG/Logo.png">
 
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.1/css/all.css">
