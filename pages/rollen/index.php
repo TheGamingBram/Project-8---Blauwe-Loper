@@ -45,10 +45,7 @@ include_once("../../classes/rollenClass.php");
                                 <td><?php echo $row['Voornaam']; ?></td>
                                 <td><?php echo $row['Achternaam']; ?></td>
                                 <td><?php echo $row['Telefoon nummer']; ?></td>
-                                <td><?php $rol->getroll($row['Rollen']);
-                                    foreach ($rol->roll as $row) {
-                                        echo $row['naam'];
-                                    }?></td>
+                                <td><?php echo $rol->getroll($row['Rollen']);?></td>
                                 <td><a href="" class="btn btn-warning">roll toewijzen</a></td>
                                 <td><a href="" class="btn btn-danger">roll wijzigen</a></td>
                             </tr>

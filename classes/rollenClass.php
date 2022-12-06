@@ -18,6 +18,9 @@ class rollen
     public function getroll($ID){
         $action = new connection;
         $this->roll = $action->select("select * from rollen where rolid = ". $ID);
+        foreach ($action->select("select * from rollen where rolid = ". $ID) as $row) {
+            return $row['naam'];
+        }
     }
     public function create()
     {
