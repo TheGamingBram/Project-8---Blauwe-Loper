@@ -1,47 +1,20 @@
-<?php
-
-    class secratariaat
-    {
-
-        public $read;
-
-        public function __construct()
-        {
-            include_once("..\assets\connect.php");
-            include_once("..\assets\header.php");
-        }
-
-        public function Create()
-        {
-            
-        }
-
-        public function Read()
-        {
-            $action = new connection;
-            $this->read = $action->select("select * from leden");
-        }
-
-        public function ReadPull()
-        {
-            $action = new connection;
-            $this->read = $action->select("select * from leden");
-        }
-
-        public function Update()
-        {
-
-        }
-
-        public function Delete()
-        {
-
-        }
-
-    }
-
-    $rol = new secratariaat();
-    $rol->read();
+<?php 
+    include_once("../../classes/secretariaatFunctions.php");
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello world</h1>
+    
+    <?php
+        $rol = new secretariaat();
+        $rol->read();
     
     ?>
     <div class="container d-flex justify-content-center">
@@ -78,3 +51,5 @@
 <?php    
 
 ?>
+</body>
+</html>
