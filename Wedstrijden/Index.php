@@ -1,10 +1,12 @@
 <?php 
+    session_start();
+
     include("../assets/connect.php");
     include("../assets/header.php");
 
 
     $loginrole = 3;
-    $AdminRights = 3;
+    $AdminRights = 2;
 
     $DB_Connection = new connection;
 
@@ -24,26 +26,26 @@
         blauweloper.leden leden2 On leden2.Lidnummer = blauweloper.wedstrijden.schijdsrechterid
     ";
 
-    $sql_responce = $DB_Connection->select($sql_request);
+    $sql_responce = $DB_Connection->select($sql_request);    
 
-    //$DB_Connection->prettyprint($sql_responce);
+    //$DB_Connection->prettyprint($_SESSION);
 ?>
 <html>
     <body>
         <div class="container">
             <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <a href="Index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                 <i class="fa-solid fa-chess-pawn"></i>
                 <svg class="bi me-2" width="40" height="32"></svg>
-                <span class="fs-4">wedstrijden</span>
+                <span class="fs-4">Wedstrijden</span>
             </a>
 
             <ul class="nav nav-pills">
                 <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
                 <?php 
-                    if($loginrole == $AdminRights){
+                    if($loginrole >= $AdminRights){
                         echo '
-                            <li class="nav-item"><a href="#" class="nav-link" aria-current="page">Wedstrijd Aanmaken</a></li>
+                            <li class="nav-item"><a href="Create.php" class="nav-link" aria-current="page">Wedstrijd Aanmaken</a></li>
                         ';
                     }
                 ?>
@@ -53,6 +55,18 @@
         </div>
         <div class="b-example-divider"></div>
         <div class="container"> 
+            <?php 
+                if(!empty($_SESSION['Message'])){
+                    echo "
+                    <div class='mb-3'>
+                        <div class='alert alert-success' role='alert'>".
+                            $_SESSION['Message']
+                    ."</div>
+                    </div>
+                    ";
+                    unset($_SESSION['Message']);
+                }
+            ?>
             <table id="table_wedstrijd" class="table table-striped">
                 <thead>
                     <tr>
@@ -106,7 +120,7 @@
                     visible: false,
                     searchable: false
                 }<?php 
-                    if($loginrole != $AdminRights){
+                    if($AdminRights >= $loginrole){
                         echo "
                             ,{
                                 target: -1,
