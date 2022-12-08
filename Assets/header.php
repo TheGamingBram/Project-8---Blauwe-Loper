@@ -21,3 +21,18 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Lora:wght@600;700&display=swap" rel="stylesheet"> 
 </head>
+
+<div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="Index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <i class="fa-solid fa-chess-pawn"></i>
+            <svg class="bi me-2" width="40" height="32"></svg>
+            <span class="fs-4">Wedstrijd Aanmaken</span>
+        </a>
+
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="Index.php" class="nav-link active" aria-current="page">Home</a></li>                
+        </ul>
+    </header>
+</div>
+<div class="b-example-divider"></div>
