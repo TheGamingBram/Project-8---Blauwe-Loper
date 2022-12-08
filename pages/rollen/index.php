@@ -1,9 +1,10 @@
 <?php
-include_once("../../Assets/header.php");
 include_once("../../classes/rollenClass.php");
+include_once("../../Assets/header.php");
 ?>
+
 <body>
-<div class="container">
+    <div class="container">
         <div class="card">
             <div class="card-header">
                 <div class="row justify-content-between">
@@ -22,23 +23,23 @@ include_once("../../classes/rollenClass.php");
                         <td>achternaam</td>
                         <td>telefoonnummer</td>
                         <td>roll</td>
-                        <td>roll toewijzen</td>
                         <td>roll wijzigen</td>
+                        <td>roll verwijderen</td>
                     </thead>
                     <tbody>
                         <?php
                         $rol = new rollen();
                         $rol->read();
                         foreach ($rol->read as $row) {
-                            ?>
+                        ?>
                             <tr>
-                                <td><?php echo $row['Lidnummer']; ?></td>
+                                <td><?php echo $row['LidID']; ?></td>
                                 <td><?php echo $row['Voornaam']; ?></td>
                                 <td><?php echo $row['Achternaam']; ?></td>
-                                <td><?php echo $row['Telefoon nummer']; ?></td>
-                                <td><?php echo $rol->getroll($row['Rollen']);?></td>
-                                <?php echo "<td><a href='update.php?id=" . $row['Lidnummer'] . "' class='btn btn-warning'>roll toewijzen</a></td>"; ?>
-                                <td><a href="" class="btn btn-danger">roll wijzigen</a></td>
+                                <td><?php echo $row['Telefoonnummer']; ?></td>
+                                <td><?php echo $rol->getroll($row['Rollen']); ?></td>
+                                <?php echo "<td><a href='update.php?id=" . $row['LidID'] . "' class='btn btn-warning'>roll wijzigen</a></td>"; ?>
+                                <?php echo "<td><a href='delete.php?id=" . $row['LidID'] . "' class='btn btn-danger'>roll verwijderen</a></td>"; ?>
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -47,5 +48,5 @@ include_once("../../classes/rollenClass.php");
         </div>
     </div>
 </body>
+
 </html>
-<?php
