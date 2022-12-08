@@ -28,6 +28,8 @@ include_once("../../Assets/header.php");
                     </thead>
                     <tbody>
                         <?php
+                        /* A foreach loop that is looping through the read function in the rollen
+                        class. */
                         $rol = new rollen();
                         $rol->read();
                         foreach ($rol->read as $row) {
