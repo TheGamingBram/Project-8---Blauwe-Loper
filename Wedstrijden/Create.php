@@ -7,7 +7,7 @@
     $AdminRights = 2;
 
     if($loginrole < $AdminRights){
-        header("Index.php");
+        header("Location: Index.php");
     }
 
     $ErrorMessage = array();
@@ -55,7 +55,7 @@
             if($DB_Connection->insert($SQL_Wed_insert_query)){
                 $_SESSION['Message'] = "Wedstrijd toegevoegd!";
 
-                header("Index.php");
+                header("Location: Index.php");
             }
         }
     }
