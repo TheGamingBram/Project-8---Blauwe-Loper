@@ -42,6 +42,13 @@ class connection
     { // this function is use to delete data.
         return $this->cnn->exec($query);
     }
+
+    public function prettyprint($arr)
+    { //prettyprint (simple fuction that shows data in a nice format)
+        echo '<pre>';          
+            print_r($arr);
+        echo '</pre>';
+    }
 }
 
 // $action = new connection;
