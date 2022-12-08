@@ -27,7 +27,7 @@
         <a href="Index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
             <i class="fa-solid fa-chess-pawn"></i>
             <svg class="bi me-2" width="40" height="32"></svg>
-            <span class="fs-4">Wedstrijd Aanmaken</span>
+            <span class="fs-4">Blauwe Loper</span>
         </a>
 
         <ul class="nav nav-pills">
