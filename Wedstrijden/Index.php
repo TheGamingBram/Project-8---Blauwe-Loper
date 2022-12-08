@@ -104,6 +104,17 @@
                         ";
                     }
                 ?> 
+            ],
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    className: 'btn btn-success',
+                    text: "Wedstrijd Aanmaken",
+                    action: function ( e, dt, node, config ) {
+                        window.location = 'Create.php';
+                    },
+                    titleAttr: 'Refresh Log'
+                }
             ]
         });
     });
