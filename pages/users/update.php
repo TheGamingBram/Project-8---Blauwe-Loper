@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     include_once("../../classes/secretariaatFunctions.php");
 
     if(isset($_POST['submit']))
@@ -13,6 +14,9 @@
         $update = new secretariaat();
         $update->Update($Voornaam, $Achternaam, $TelefoonNummer, $Email, $Wachtwoord, $ID);
 
+
+        $_SESSION['Message'] = "Account is succesvol aangepast";
+        $_SESSION['MessageType'] = "success";
         header('location: secretariaat.php');
         die();
     }
@@ -67,7 +71,9 @@
             <label for="Wachtwoord">Wachtwoord</label>
             <input type="password" class="form-control" placeholder="*********" maxlength="255" name="Wachtwoord" required>
         </div>
+        <a class="btn btn-secondary" href="secretariaat.php" type="button" name="Annuleren">Annuleren</a>
         <button class="btn btn-primary" type="submit" name="submit">Lid Aanmaken</button>
+        
     </form>
     </div>    
 </body>

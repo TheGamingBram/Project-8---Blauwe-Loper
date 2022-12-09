@@ -7,6 +7,7 @@
         public $create;
         public $data;
         public $update;
+        public $delete;
 
         public function __construct()
         {
@@ -38,9 +39,10 @@
             $this->update = $action->update("UPDATE `leden` SET `Voornaam` = '$Voornaam', `Achternaam` = '$Achternaam', `Telefoonnummer` = '$Telefoonnummer', `Email` = '$Email', `Wachtwoord` = '$Wachtwoord' WHERE `LidID` = '$ID'");
         }
 
-        public function Delete()
+        public function Delete($ID)
         {
-
+            $action = new connection;
+            $this->delete = $action->delete("DELETE FROM `leden` WHERE `LidID` = '$ID'");
         }
 
     }

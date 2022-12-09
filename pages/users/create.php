@@ -1,5 +1,5 @@
 <?php 
-    
+    session_start();
     include_once("../../classes/secretariaatFunctions.php");
     include_once("../../assets/header.php");
 
@@ -7,19 +7,23 @@
     {
         if (!empty($_POST["Voornaam"]) && !empty($_POST["Achternaam"]) && !empty($_POST["Telefoonnummer"]) && !empty($_POST["Email"]) && !empty($_POST["Wachtwoord"]))
         {
-          echo "ze zijn ingevuld";
-          $Voornaam = $_POST["Voornaam"];
-          $Achternaam = $_POST["Achternaam"];
-          $Telefoonnummer = $_POST["Telefoonnummer"];
-          $Email = $_POST["Email"];
-          $Wachtwoord = $_POST["Wachtwoord"];
+            $Voornaam = $_POST["Voornaam"];
+            $Achternaam = $_POST["Achternaam"];
+            $Telefoonnummer = $_POST["Telefoonnummer"];
+            $Email = $_POST["Email"];
+            $Wachtwoord = $_POST["Wachtwoord"];
 
-          $create = new secretariaat;
-          $create->Create($Voornaam, $Achternaam, $Telefoonnummer, $Email, $Wachtwoord);
+            $create = new secretariaat;
+            $create->Create($Voornaam, $Achternaam, $Telefoonnummer, $Email, $Wachtwoord);
+
+            $_SESSION['Message'] = "Account is succesvol aangemaakt";
+            $_SESSION['MessageType'] = "success";
+            header("location: secretariaat.php");
+            die();
         }
         else 
         {
-            echo "ze zijn niet ingevuld"; 
+
         }
     }
 
