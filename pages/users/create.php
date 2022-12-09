@@ -19,7 +19,7 @@
         }
         else 
         {
-            echo "ze zijn nietingevuld"; 
+            echo "ze zijn niet ingevuld"; 
         }
     }
 
