@@ -22,7 +22,7 @@ class Signup {
     }
    
     protected function checkUser($email, $ww) {
-        $stmt = $this->connect()->prepare('');
+        $stmt = $this->connect()->prepare('SELECT');
 
         if($stmt->(array($email, $ww))){
 
