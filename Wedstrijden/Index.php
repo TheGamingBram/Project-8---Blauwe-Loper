@@ -111,6 +111,9 @@
     $(document).ready(function () {
         $('#table_wedstrijd').DataTable({
             "paging": false,
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.13.1/i18n/nl-NL.json'
+            },
             columnDefs: [
                 {
                     target: 0,
