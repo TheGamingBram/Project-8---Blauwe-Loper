@@ -54,6 +54,7 @@
             $SQL_Wed_insert_query = "INSERT INTO wedstrijden (`Lid1`, `Lid2`, `Scorelid1`, `Scorelid2`, `SchijdsrechterID`) VALUES ('".$_POST['Lid1Select']."','".$_POST['Lid2Select']."','0','0','".$_POST['ScheidsSelect']."')";
             if($DB_Connection->insert($SQL_Wed_insert_query)){
                 $_SESSION['Message'] = "Wedstrijd toegevoegd!";
+                $_SESSION['MessageType'] = "success";
 
                 header("Location: Index.php");
             }

@@ -35,12 +35,13 @@
         if(!empty($_SESSION['Message'])){
             echo "
                 <div class='mb-3'>
-                    <div class='alert alert-success' role='alert'>".
+                    <div class='alert alert-".$_SESSION['MessageType']."' role='alert'>".
                         $_SESSION['Message']
                     ."</div>
                 </div>
                 ";
             unset($_SESSION['Message']);
+            unset($_SESSION['MessageType']);
         }
     ?>
     <table id="table_wedstrijd" class="table table-striped">
@@ -59,7 +60,7 @@
                 foreach ($sql_responce as $row) {
                     echo "<tr>";
                         echo "<td>";
-                            echo $row["wedstrijdnummer"];
+                            echo $row["Wedstrijdnummer"];
                         echo "</td>";
                         echo "<td>";
                             echo $row["Lid1Voornaam"] . " " . $row["Lid1Achternaam"];
@@ -68,7 +69,7 @@
                             echo $row["Lid2Voornaam"] . " " . $row["Lid2Achternaam"];
                         echo "</td>";
                         echo "<td>";
-                            echo $row["scorelid1"] . "-" . $row["scorelid2"];
+                            echo $row["Scorelid1"] . "-" . $row["Scorelid2"];
                         echo "</td>";
                         echo "<td>";
                             echo $row["SchijdsVoornaam"] . " " . $row["SchijdsAchternaam"];
@@ -76,7 +77,29 @@
                         echo "<td>";
                             echo "<a class='btn btn-warning' href='#' role='button'><i class='fa-solid fa-pen'></i></a>";
                             echo "&nbsp;";
-                            echo "<a class='btn btn-danger' href='#' role='button'><i class='fa-solid fa-trash'></i></a>";
+                            echo "<button type='button' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#Wedstr".$row["Wedstrijdnummer"]."'><i class='fa-solid fa-trash'></i></button>";
+
+                            echo '
+                                <div class="modal fade" id="Wedstr'.$row["Wedstrijdnummer"].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Weet u het zeker?</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <form method="post" action="wedstr_data.php">
+                                            <input type="hidden" name="DelID" value="'.$row["Wedstrijdnummer"].'">
+                                            <input type="hidden" name="Type" value="delInfo">
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit"  class="btn btn-danger">Verwijderen</button>
+                                            </div>
+                                        </form>
+                                        
+                                    </div>
+                                    </div>
+                                </div>
+                            ';
                         echo "</td>";
                     echo "</tr>";
                 }
