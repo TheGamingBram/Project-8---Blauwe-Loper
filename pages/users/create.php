@@ -3,24 +3,31 @@
     include_once("../../classes/secretariaatFunctions.php");
     include_once("../../assets/header.php");
 
+    // hier wordt gekeken ofdat de formulier al is ingevuld
     if(isset($_POST["submit"]))
     {
+        // checkt opdat alle formulier gegevens wel ingevuld zijn
         if (!empty($_POST["Voornaam"]) && !empty($_POST["Achternaam"]) && !empty($_POST["Telefoonnummer"]) && !empty($_POST["Email"]) && !empty($_POST["Wachtwoord"]))
         {
+            // stopt alle formulier data in variabelen
             $Voornaam = $_POST["Voornaam"];
             $Achternaam = $_POST["Achternaam"];
             $Telefoonnummer = $_POST["Telefoonnummer"];
             $Email = $_POST["Email"];
             $Wachtwoord = $_POST["Wachtwoord"];
 
+            // hier wordt de Create functie uitgevoerd 
             $create = new secretariaat;
             $create->Create($Voornaam, $Achternaam, $Telefoonnummer, $Email, $Wachtwoord);
 
+            // hier wordt een session aangemaakt 
             $_SESSION['Message'] = "Account is succesvol aangemaakt";
             $_SESSION['MessageType'] = "success";
+            // stuurd je door naar de secretariaat.php pagina en sluit deze code af
             header("location: secretariaat.php");
             die();
         }
+        // er gebeurd niks als de formulier nog niet is ingevuld
         else 
         {
 
@@ -28,6 +35,7 @@
     }
 
 ?>
+<!-- standaard html gegevens -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +45,7 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- hier wordt een bootstrap formulier gemaakt -->
     <div class="container d-flex justify-content-center">
     <form class="w-75" method="POST" action="create.php">
         <div class="row">
@@ -61,6 +70,7 @@
             <label for="Wachtwoord">Wachtwoord</label>
             <input type="password" class="form-control" placeholder="" maxlength="255" name="Wachtwoord" required>
         </div>
+        <!-- vult de post in en stuurd je terug naar dezelfde pagina -->
         <button class="btn btn-primary" type="submit" name="submit">Lid Aanmaken</button>
     </form>
     </div>
