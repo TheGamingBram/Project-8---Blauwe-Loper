@@ -16,6 +16,9 @@ class SignupContrl {
         $this->$ww = $ww;
         $this->$wwherhaal = $wwherhaal;
         $this->$telefoonnummer = $telefoonnummer;
+        
+        //Include Database
+        include_once("..\..\assets\connect.php");
     }
 
     private function emptyInput() {
