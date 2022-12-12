@@ -84,7 +84,7 @@
         <!-- stuurd je terug naar de secretariaat.php pagina -->
         <a class="btn btn-secondary" href="secretariaat.php" type="button" name="Annuleren">Annuleren</a>
         <!-- stopt de gegevens in de post en stuurd je naar dezelfde pagina -->
-        <button class="btn btn-primary" type="submit" name="submit">Lid Aanmaken</button>
+        <button class="btn btn-primary" type="submit" name="submit">Lid Wijzigen</button>
         
     </form>
     </div>    
