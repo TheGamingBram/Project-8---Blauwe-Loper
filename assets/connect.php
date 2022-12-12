@@ -3,7 +3,7 @@
 class connection
 {
 
-    public $cnn;
+    private $cnn;
 
     public function __construct()
     {
@@ -45,8 +45,8 @@ class connection
 
     public function prettyprint($arr)
     { //prettyprint (simple fuction that shows data in a nice format)
-        echo '<pre>';          
-            print_r($arr);
+        echo '<pre>';
+        print_r($arr);
         echo '</pre>';
     }
 }
