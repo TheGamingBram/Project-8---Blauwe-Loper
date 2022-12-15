@@ -1,33 +1,49 @@
 <?php
 
-class Signup {
+class Signup extends Dbh {
 
-    private $voornaam;
-    private $achternaam;
-    private $email;
-    private $ww;
-    private $wwherhaal;
-    private $telefoonnummer;
-
-    public function __construct($voornaam, $achternaam, $email, $ww, $wwherhaal, $telefoonnummer) {
-        $this->$voornaam = $voornaam;
-        $this->$achternaam = $achternaam;
-        $this->$email = $email;
-        $this->$ww = $ww;
-        $this->$wwherhaal = $wwherhaal;
-        $this->$telefoonnummer = $telefoonnummer;
+    protected function setUser($LidID, $ww, $email){
+        $stmt = $this->connect()->prepare('SELECT LidID FROM leden WHERE LidID = ? OR Email = ?;');
         
-        //Include Database
-        include_once("..\..\assets\connect.php");
-    }
-   
-    protected function checkUser($email, $ww) {
-        $stmt = $this->connect()->prepare('SELECT');
-
-        if($stmt->(array($email, $ww))){
-
+        
+        if(!$stmt->execute(array($LidID, $email))) {
+            $stmt = null;
+            header("location: ../index.php?error=stmtfailed");
+            exit();
+        }
+        
+        //$resultCheck;
+        if($stmt->rowCount() > 0){
+            $resultCheck = false;
+        }
+        else{
+            $resultCheck = true;
         }
 
+        return $resultCheck;
+        
+    }
+
+    protected function checkUser($LidID, $email){
+        $stmt = $this->connect()->prepare('SELECT LidID FROM leden WHERE LidID = ? OR Email = ?;');
+        
+        
+        if(!$stmt->execute(array($LidID, $email))) {
+            $stmt = null;
+            header("location: ../index.php?error=stmtfailed");
+            exit();
+        }
+        
+        //$resultCheck;
+        if($stmt->rowCount() > 0){
+            $resultCheck = false;
+        }
+        else{
+            $resultCheck = true;
+        }
+
+        return $resultCheck;
+        
     }
 
 }
