@@ -2,7 +2,7 @@
 
 class SignupContrl extends Signup {
 
-    private $lidID;
+    //private $lidID;
     private $voornaam;
     private $achternaam;
     private $email;
@@ -10,8 +10,8 @@ class SignupContrl extends Signup {
     private $wwherhaal;
     private $telefoonnummer;
 
-    public function __construct($voornaam, $achternaam, $email, $ww, $wwherhaal, $telefoonnummer, $lidID) {
-        $this->lidID = $lidID;
+    public function __construct($voornaam, $achternaam, $email, $ww, $wwherhaal, $telefoonnummer) {
+        //$this->lidID = $lidID;
         $this->voornaam = $voornaam;
         $this->achternaam = $achternaam;
         $this->email = $email;
@@ -25,8 +25,8 @@ class SignupContrl extends Signup {
 
     public function signupUser() {
         if($this->emptyInput() == false) {
-            //echo "Empty input!"
-            header("location: ../index.php?error=stmtfailed");
+            echo "Empty input!";
+            header("location: ../index.php?error=emptyinput");
             exit();
         }
 
@@ -54,7 +54,7 @@ class SignupContrl extends Signup {
             exit();
         }
 
-        $this->setUser($this->LidID, $this->ww, $this->Email,);
+        $this->setUser($this->lidID, $this->ww, $this->email,);
         
     }
     
@@ -123,7 +123,7 @@ class SignupContrl extends Signup {
 
     private function lidIDTakenCheck() {
         $result="";
-        if (!$this->checkUser($this->LidID, $this->email))
+        if (!$this->checkUser($this->lidID, $this->email))
         {
             $result = false;
         } 

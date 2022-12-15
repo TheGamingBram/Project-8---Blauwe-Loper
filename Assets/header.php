@@ -31,7 +31,25 @@
         </a>
 
         <ul class="nav nav-pills">
-            <li class="nav-item"><a href="Index.php" class="nav-link active" aria-current="page">Home</a></li>                
+            <?php
+                if(isset($_SESSION["gebruikersid"]))
+                {
+            ?>
+                    <li><a href="#"><?php echo $_SESSION["gebruikersid"];?></a></li>
+                    <li><a href="includes../login/includes/logout.inc.php" class="header-login-a">UITLOGGEN</a></li>
+                    <?php
+                }
+                else
+                {
+                    ?>
+                    <li><a href="#">REGISTEER</a></li>
+                    <li><a href="#" class="header-login-a">LOGIN</a></li>
+
+
+            <?php
+                }
+            ?>
+            
         </ul>
     </header>
 </div>
