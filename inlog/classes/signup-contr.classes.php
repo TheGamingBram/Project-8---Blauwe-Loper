@@ -1,6 +1,6 @@
 <?php
 
-class SignupContrl {
+class SignupContrl extends Signup {
 
     private $lidID;
     private $voornaam;
@@ -11,19 +11,19 @@ class SignupContrl {
     private $telefoonnummer;
 
     public function __construct($voornaam, $achternaam, $email, $ww, $wwherhaal, $telefoonnummer, $lidID) {
-        $this->$lidID = $lidID;
-        $this->$voornaam = $voornaam;
-        $this->$achternaam = $achternaam;
-        $this->$email = $email;
-        $this->$ww = $ww;
-        $this->$wwherhaal = $wwherhaal;
-        $this->$telefoonnummer = $telefoonnummer;
+        $this->lidID = $lidID;
+        $this->voornaam = $voornaam;
+        $this->achternaam = $achternaam;
+        $this->email = $email;
+        $this->ww = $ww;
+        $this->wwherhaal = $wwherhaal;
+        $this->telefoonnummer = $telefoonnummer;
         
         //Include Database
         include_once("..\..\assets\connect.php");
     }
 
-    private function signupUser() {
+    public function signupUser() {
         if($this->emptyInput() == false) {
             //echo "Empty input!"
             header("location: ../index.php?error=stmtfailed");
@@ -48,13 +48,13 @@ class SignupContrl {
             exit();
         }
 
-        // if($this->lidIDTakenCheck() == false) {
-        //     //echo "Empty input!"
-        //     header("location: ../index.php?error=useroremailtaken");
-        //     exit();
-        // }
+        if($this->lidIDTakenCheck() == false) {
+            //echo "Empty input!"
+            header("location: ../index.php?error=useroremailtaken");
+            exit();
+        }
 
-        $this->setUser();
+        $this->setUser($this->LidID, $this->ww, $this->Email,);
         
     }
     
@@ -121,9 +121,9 @@ class SignupContrl {
         return $result;
     }
 
-    private function pwdMatch() {
+    private function lidIDTakenCheck() {
         $result="";
-        if (!$this->checkUser($this->LidID, $this->$email))
+        if (!$this->checkUser($this->LidID, $this->email))
         {
             $result = false;
         } 
@@ -133,7 +133,6 @@ class SignupContrl {
         }
         return $result;
     }   
-  
   
 
 }
