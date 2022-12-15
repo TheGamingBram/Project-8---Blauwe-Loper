@@ -75,7 +75,7 @@
                             echo $row["SchijdsVoornaam"] . " " . $row["SchijdsAchternaam"];
                         echo "</td>";
                         echo "<td>";
-                            echo "<a class='btn btn-warning' href='#' role='button'><i class='fa-solid fa-pen'></i></a>";
+                            echo "<a class='btn btn-warning' href='Wedst_edit' role='button'><i class='fa-solid fa-pen'></i></a>";
                             echo "&nbsp;";
                             echo "<button type='button' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#Wedstr".$row["Wedstrijdnummer"]."'><i class='fa-solid fa-trash'></i></button>";
 
