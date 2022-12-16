@@ -6,10 +6,10 @@
     <div class="wrapper">
         <div class="index-login-signup">
         <?php
-                if(isset($_SESSION["gebruikersid"]))
+                if(isset($_SESSION["gebruikerid"]))
                 {
             ?>
-                    <li><a href="#"><?php echo $_SESSION["gebruikersid"];?></a></li>
+                    <li><a href="#"><?php echo $_SESSION["gebruikerid"];?></a></li>
                     <li><a href="includes../login/includes/logout.inc.php" class="header-login-a">UITLOGGEN</a></li>
                     <?php
                 }
