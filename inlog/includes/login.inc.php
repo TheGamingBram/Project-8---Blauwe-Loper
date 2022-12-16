@@ -1,7 +1,6 @@
 <?php
 
-if(isset($_POST["submit"]))
-{
+if (isset($_POST["submit"])) {
     // Grabbing the data
     $email = $_POST["email"];
     $ww = $_POST["ww"];
@@ -17,5 +16,4 @@ if(isset($_POST["submit"]))
 
     // Going back to front page
     header("location: ../index.php?error=none");
-
 }
