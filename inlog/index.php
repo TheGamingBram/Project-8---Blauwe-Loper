@@ -6,10 +6,10 @@
     <div class="wrapper">
         <div class="index-login-signup">
         <?php
-                if(isset($_SESSION["gebruikersid"]))
+                if(isset($_SESSION["gebruikerid"]))
                 {
             ?>
-                    <li><a href="#"><?php echo $_SESSION["gebruikersid"];?></a></li>
+                    <li><a href="#"><?php echo $_SESSION["email"]; ?></a></li>
                     <li><a href="includes../login/includes/logout.inc.php" class="header-login-a">UITLOGGEN</a></li>
                     <?php
                 }
@@ -25,7 +25,7 @@
             ?>
             <h4>Registreer</h4>
             <p>Registreer hier</p>
-            <form action="includes/signup.inc.php" method="post">
+            <form action="../includes/signup.inc.php" method="post">
                 <input type="text" name="voornaam" placeholder="Voornaam">
                 <input type="text" name="achternaam" placeholder="Achternaam">
                 <input type="text" name="email" placeholder="Email">
