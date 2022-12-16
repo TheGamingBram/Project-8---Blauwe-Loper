@@ -26,7 +26,7 @@
         {
             // maakt een nieuwe connectie naar de database en voert de query uit en stopt hem in de $read variabel
             $action = new connection;
-            $this->read = $action->select("SELECT * FROM `leden`");
+            $this->read = $action->select("SELECT * FROM `leden` WHERE `Rollen`=1 OR `Rollen`=2");
         }
 // bij deze functie wordt de data van de geselecteerde lid opgehaald
         public function Getdata($ID)
