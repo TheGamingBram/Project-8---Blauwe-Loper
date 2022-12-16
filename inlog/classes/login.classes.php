@@ -21,7 +21,8 @@ class Login extends Dbh
 
 
         $hashedWW = $stmt->fetchALL(PDO::FETCH_ASSOC);
-        $checkWW = password_verify($ww, password_hash($hashedWW[0]["Wachtwoord"], PASSWORD_DEFAULT));
+        $pass_out = $hashedWW[0]["Wachtwoord"];
+        $checkWW = password_verify($ww, $pass_out);
 
         if ($checkWW == false) {
             $stmt = null;
@@ -30,7 +31,7 @@ class Login extends Dbh
         } elseif ($checkWW == true) {
             $stmt = $this->connect()->prepare('SELECT * FROM leden WHERE Email = ? AND Wachtwoord = ?;');
 
-            if (!$stmt->execute(array($email, $ww))) {
+            if (!$stmt->execute(array($email, $pass_out))) {
                 $stmt = null;
                 header("location: ../index.php?error=stmtfailed");
                 exit();

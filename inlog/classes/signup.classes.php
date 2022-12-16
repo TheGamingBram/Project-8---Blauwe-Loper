@@ -3,13 +3,15 @@
 class Signup extends Dbh {
 
     protected function setUser($voornaam, $achternaam, $telefoonnummer, $email, $ww){
-        $stmt = $this->connect()->prepare('INSERT INTO leden (Voornaam, Achternaam, Telefoonnummer, Email, Wachtwoord) VALUES (?, ?, ?, ?, ?);');
+        $stmt = $this->connect()->prepare('INSERT INTO leden (Voornaam, Achternaam, Telefoonnummer, Email, Wachtwoord, Rollen) VALUES (?, ?, ?, ?, ?, ?);');
         
         $hashedWW= password_hash($ww, PASSWORD_DEFAULT);
+        
+        print_r($stmt);
 
-        if(!$stmt->execute(array($voornaam, $achternaam, $telefoonnummer, $email, $hashedWW))) {
+        if(!$stmt->execute(array($voornaam, $achternaam, $telefoonnummer, $email, $hashedWW, 1))) {
             $stmt = null;
-            header("location: ../index.php?error=stmtfailed");
+            //header("location: ../index.php?error=stmtfailed");
             exit();
         }
         

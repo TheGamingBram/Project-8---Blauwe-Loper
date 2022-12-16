@@ -105,7 +105,7 @@ class SignupContrl extends Signup {
     
     private function pwdMatch() {
         $result="";
-        if ($this->pwd !== $this->pwdRepaat)
+        if ($this->ww !== $this->wwherhaal)
         {
             $result = false;
         } 
