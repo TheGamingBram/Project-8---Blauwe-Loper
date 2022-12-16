@@ -21,7 +21,6 @@ class Login extends Dbh
 
 
         $hashedWW = $stmt->fetchALL(PDO::FETCH_ASSOC);
-        // hash("md5", $hashedWW[0]["Wachtwoord"] );
         $checkWW = password_verify($ww, password_hash($hashedWW[0]["Wachtwoord"], PASSWORD_DEFAULT));
 
         if ($checkWW == false) {

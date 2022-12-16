@@ -19,11 +19,10 @@ class SignupContrl extends Signup {
     }
 
     public function signupUser() {
-        if($this->emptyInput() == false) {
-            echo "Empty input!";
-            header("location: ../index.php?error=emptyinput");
-            exit();
-        }
+        // if($this->emptyInput() == false) {
+        //     header("location: ../index.php?error=emptyinput");
+        //     exit();
+        // }
 
         // if($this->invalidlidID() == false) {
         //     //echo "Invalid Email"
@@ -31,11 +30,11 @@ class SignupContrl extends Signup {
         //     exit();
         // }
 
-        if($this->invalidEmail() == false) {
-            //echo "Empty input!"
-            header("location: ../index.php?error=email");
-            exit();
-        }
+        // if($this->invalidEmail() == false) {
+        //     //echo "Empty input!"
+        //     header("location: ../index.php?error=email");
+        //     exit();
+        // }
 
         if($this->pwdMatch() == false) {
             //echo "Passwords don't match!"
@@ -54,19 +53,19 @@ class SignupContrl extends Signup {
     }
     
 
-    private function emptyInput() {
-        // $result;
-        echo $this->voornaam, $this->achternaam, $this->email, $this->ww, $this->wwherhaal, $this->telefoonnummer;
-        if(empty($this->voornaam) || empty($this->achternaam) || empty($this->email) || empty($this->ww) || empty($this->wwherhaal) || empty($this->telefoonnummer)) 
-        {
-            $result = false;
-        }
-        else
-        {
-            $result = true;
-        }
-        return $result;
-        }
+    // private function emptyInput() {
+    //     $result="";
+    //     echo $this->voornaam, $this->achternaam, $this->email, $this->ww, $this->wwherhaal, $this->telefoonnummer;
+    //     if(empty($this->voornaam) || empty($this->achternaam) || empty($this->email) || empty($this->ww) || empty($this->wwherhaal) || empty($this->telefoonnummer)) 
+    //     {
+    //         $result = false;
+    //     }
+    //     else
+    //     {
+    //         $result = true;
+    //     }
+    //     return $result;
+    //     }
 
     // function isTelNummer($telefoonnummer) {
     //     if (preg_match('/^[0-9\-]|[\+0-9]|[0-9\s]|[0-9()]*$/', $telefoonnummer)) {
