@@ -21,7 +21,7 @@ class LoginContrl extends Login {
         }
 
 
-        $this->getUser($this->email;, $this->ww);
+        $this->getUser($this->email, $this->ww);
         
     }
     

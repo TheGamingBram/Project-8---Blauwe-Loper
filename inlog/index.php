@@ -40,8 +40,8 @@
         <h4>Login</h4>
         <p>Geen account? Registreer eerst</p>
         <form action="includes/login.inc.php" method="post">
-            <input type="text" name="id" placeholder="Email">
-            <input type="password" name="pwd" placeholder="Wachtwoord">
+            <input type="text" name="email" placeholder="Email">
+            <input type="password" name="ww" placeholder="Wachtwoord">
             <br>
             <button type="submit" name="submit">Login</button>
         </div>

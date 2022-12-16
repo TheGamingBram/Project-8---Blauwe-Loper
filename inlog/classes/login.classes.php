@@ -3,24 +3,25 @@
 class Login extends Dbh {
 
     protected function getUser($email, $ww){
-        $stmt = $this->connect()->prepare('SELECT Wachtwoord FROM leden WHERE Email = ?;');
+        $stmt = $this->connect()->prepare('SELECT Wachtwoord FROM leden WHERE Email = ?');
 
-        if(!$stmt->execute(array($email, $ww))) {
+        if(!$stmt->execute(array($email))) {
             $stmt = null;
             header("location: ../index.php?error=stmtfailed");
             exit();
         }
 
-        //$resultCheck;
         if($stmt->rowCount() == 0)
         {
             $stmt = null;
             header("location: ../index.php?error=usernotfount");
-            exit():
+            exit();
         }
         
+        
         $hashedWW = $stmt->fetchALL(PDO::FETCH_ASSOC);
-        $checkWW = password_verify($ww, $hashedWW[0]["Wachtwoord"]);
+        // hash("md5", $hashedWW[0]["Wachtwoord"] );
+        $checkWW = password_verify($ww, hash("md5", $hashedWW[0]["Wachtwoord"] ));
 
         if($checkWW == false)
         {
@@ -48,8 +49,8 @@ class Login extends Dbh {
         $gebruiker = $stmt->fetchALL(PDO::FETCH_ASSOC);
 
         session_start();
-        $_SESSION["gebruikerid"] = $gebruiker[0]["gebruikers_id"]
-        $_SESSION["email"] = $gebruiker[0]["email"]
+        $_SESSION["gebruikerid"] = $gebruiker[0]["gebruikers_id"];
+        $_SESSION["email"] = $gebruiker[0]["email"];
 
         }
 
