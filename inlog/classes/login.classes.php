@@ -46,8 +46,8 @@ class Login extends Dbh
             $gebruiker = $stmt->fetchALL(PDO::FETCH_ASSOC);
 
             session_start();
-            $_SESSION["gebruikerid"] = $gebruiker[0]["gebruikers_id"];
-            $_SESSION["email"] = $gebruiker[0]["email"];
+            $_SESSION["gebruikerid"] = $gebruiker[0]["LidID"];
+            $_SESSION["email"] = $gebruiker[0]["Email"];
         }
 
         $stmt = null;
