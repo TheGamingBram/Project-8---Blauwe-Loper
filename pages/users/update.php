@@ -62,20 +62,20 @@
         <div class="row">
             <div class="col">
                 <label for="Voornaam">Voornaam</label>
-                <input type="text" class="form-control" placeholder="<?php echo $Voornaam ?>" maxlength="255" name="Voornaam" required>
+                <input type="text" class="form-control" value="<?php echo $Voornaam ?>" maxlength="255" name="Voornaam" required>
             </div>
             <div class="col">
                 <label for="Achternaam">Achternaam</label>
-                <input type="text" class="form-control" placeholder="<?php echo $Achternaam ?>" maxlength="255" name="Achternaam" required>
+                <input type="text" class="form-control" value="<?php echo $Achternaam ?>" maxlength="255" name="Achternaam" required>
             </div>
         </div>
         <div class="form-group">
             <label for="Telefoonnummer">Telefoonnummer</label>
-            <input type="tel" class="form-control" placeholder="<?php echo $TelefoonNummer ?>" maxlength="10" name="Telefoonnummer" required>
+            <input type="tel" class="form-control" value="<?php echo $TelefoonNummer ?>" maxlength="10" name="Telefoonnummer" required>
         </div>
         <div class="form-group">
             <label for="Email">Email</label>
-            <input type="email" class="form-control" placeholder="<?php echo $Email ?>" maxlength="255" name="Email" required>
+            <input type="email" class="form-control" value="<?php echo $Email ?>" maxlength="255" name="Email" required>
         </div>
         <div class="form-group">
             <label for="Wachtwoord">Wachtwoord</label>
