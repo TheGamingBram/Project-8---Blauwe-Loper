@@ -3,20 +3,18 @@
 if(isset($_POST["submit"]))
 {
     // Grabbing the data
-    // $lidID = $_POST["lidID"];
     $voornaam = $_POST["voornaam"];
     $achternaam = $_POST["achternaam"];
     $email = $_POST["email"];
     $ww = $_POST["ww"];
     $wwherhaal = $_POST["wwherhaal"];
-    //$telefoonnummer = $_POST["telefoonnummer"];
+    $telefoonnummer = $_POST["telefoonnummer"];
 
     // Instatntiate Signup Controller class
     include "../classes/dbh.classes.php";
     include "../classes/signup.classes.php";
     include "../classes/signup-contr.classes.php";
-    $signup = new SignupContrl($voornaam, $achternaam, $email, $ww, $wwherhaal//, $telefoonnummer
-    );
+    $signup = new SignupContrl($voornaam, $achternaam, $email, $ww, $wwherhaal, $telefoonnummer);
 
 
     
