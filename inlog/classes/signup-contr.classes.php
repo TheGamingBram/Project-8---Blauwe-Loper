@@ -2,7 +2,6 @@
 
 class SignupContrl extends Signup {
 
-    //private $lidID;
     private $voornaam;
     private $achternaam;
     private $email;
@@ -11,16 +10,12 @@ class SignupContrl extends Signup {
     private $telefoonnummer;
 
     public function __construct($voornaam, $achternaam, $email, $ww, $wwherhaal, $telefoonnummer) {
-        //$this->lidID = $lidID;
         $this->voornaam = $voornaam;
         $this->achternaam = $achternaam;
         $this->email = $email;
         $this->ww = $ww;
         $this->wwherhaal = $wwherhaal;
         $this->telefoonnummer = $telefoonnummer;
-        
-        //Include Database
-        include_once("..\..\assets\connect.php");
     }
 
     public function signupUser() {
@@ -30,11 +25,11 @@ class SignupContrl extends Signup {
             exit();
         }
 
-        if($this->invalidlidID() == false) {
-            //echo "Invalid Email"
-            header("location: ../index.php?error=id");
-            exit();
-        }
+        // if($this->invalidlidID() == false) {
+        //     //echo "Invalid Email"
+        //     header("location: ../index.php?error=id");
+        //     exit();
+        // }
 
         if($this->invalidEmail() == false) {
             //echo "Empty input!"
@@ -48,19 +43,20 @@ class SignupContrl extends Signup {
             exit();
         }
 
-        if($this->lidIDTakenCheck() == false) {
-            //echo "Empty input!"
-            header("location: ../index.php?error=useroremailtaken");
-            exit();
-        }
+        // if($this->lidIDTakenCheck() == false) {
+        //     //echo "Empty input!"
+        //     header("location: ../index.php?error=useroremailtaken");
+        //     exit();
+        // }
 
-        $this->setUser($this->lidID, $this->ww, $this->email,);
+        $this->setUser($this->voornaam, $this->achternaam, $this->telefoonnummer, $this->email, $this->ww);
         
     }
     
 
     private function emptyInput() {
-        $result="";
+        // $result;
+        echo $this->voornaam, $this->achternaam, $this->email, $this->ww, $this->wwherhaal, $this->telefoonnummer;
         if(empty($this->voornaam) || empty($this->achternaam) || empty($this->email) || empty($this->ww) || empty($this->wwherhaal) || empty($this->telefoonnummer)) 
         {
             $result = false;
@@ -121,18 +117,18 @@ class SignupContrl extends Signup {
         return $result;
     }
 
-    private function lidIDTakenCheck() {
-        $result="";
-        if (!$this->checkUser($this->lidID, $this->email))
-        {
-            $result = false;
-        } 
-        else 
-        {
-            $result = true;
-        }
-        return $result;
-    }   
+    // private function lidIDTakenCheck() {
+    //     $result="";
+    //     if (!$this->checkUser($this->lidID, $this->email))
+    //     {
+    //         $result = false;
+    //     } 
+    //     else 
+    //     {
+    //         $result = true;
+    //     }
+    //     return $result;
+    // }   
   
 
 }
